@@ -123,9 +123,7 @@ export function MainNav({ className }: { className?: string }) {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="absolute md:hidden top-2 right-0 flex items-center justify-between gap-2">
-        <Link href="/rss">
           <ModeToggle />
-        </Link>
         <Link href="/rss">
           <Icons.rss className="h-5 w-5" />
         </Link>
@@ -134,9 +132,7 @@ export function MainNav({ className }: { className?: string }) {
         </Link>
       </div>
       <div className="hidden md:flex items-center justify-between gap-2">
-        <Link href="/rss">
           <ModeToggle />
-        </Link>
         <Link href="/rss">
           <Icons.rss className="h-5 w-5" />
         </Link>
