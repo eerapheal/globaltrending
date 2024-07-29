@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import Logo from "@/assets/images/globaltrending.png"
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -15,6 +15,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
+import { ModeToggle } from "@/components/ui/mode.toggle"
 
 const posts: { title: string; href: string; description: string }[] = [
   {
@@ -43,9 +44,12 @@ const posts: { title: string; href: string; description: string }[] = [
   },
 ]
 
-export function MainNav() {
+export function MainNav({ className }: { className?: string }) {
   return (
-    <div className="flex justify-between items-center p-2">
+    <div className={cn(
+      "relative flex flex-col items-start justify-start md:flex-row md:items-center md:justify-between p-2 z-50",
+      className
+    )}>
       <Link href="/">
         <div className="flex justify-center items-center">
           <Image
@@ -55,7 +59,7 @@ export function MainNav() {
             width={50}
             height={50}
           />
-          <span className="hidden md:flex text-2xl font-bold text-blue-600 ">Global Trending</span>
+          <span className="hidden lg:flex text-2xl font-bold text-blue-600 ">Global Trending</span>
         </div>
       </Link>
       <NavigationMenu>
@@ -71,7 +75,7 @@ export function MainNav() {
                       href="/"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        Global Trend
+                        Africa
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
                         Beautifully designed components that you can copy and
@@ -84,14 +88,11 @@ export function MainNav() {
                 <ListItem href="/docs" title="America">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs" title="Europe">
+                <ListItem href="/docs" title="Asia">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Asia">
+                <ListItem href="/docs/installation" title="Europe">
                   How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Africa">
-                  Styles for headings, paragraphs, lists...etc
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -121,9 +122,28 @@ export function MainNav() {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <Link href="/sign-in">
-        <span>Login</span>
-      </Link>
+      <div className="absolute md:hidden top-2 right-0 flex items-center justify-between gap-2">
+        <Link href="/rss">
+          <ModeToggle />
+        </Link>
+        <Link href="/rss">
+          <Icons.rss className="h-5 w-5" />
+        </Link>
+        <Link href="/sign-in">
+          Login
+        </Link>
+      </div>
+      <div className="hidden md:flex items-center justify-between gap-2">
+        <Link href="/rss">
+          <ModeToggle />
+        </Link>
+        <Link href="/rss">
+          <Icons.rss className="h-5 w-5" />
+        </Link>
+        <Link href="/sign-in">
+          Login
+        </Link>
+      </div>
     </div>
   )
 }
