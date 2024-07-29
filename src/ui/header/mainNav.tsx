@@ -71,7 +71,7 @@ export function MainNav() {
                       href="/"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        America
+                        Global Trend
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
                         Beautifully designed components that you can copy and
@@ -81,6 +81,9 @@ export function MainNav() {
                     </a>
                   </NavigationMenuLink>
                 </li>
+                <ListItem href="/docs" title="America">
+                  Re-usable components built using Radix UI and Tailwind CSS.
+                </ListItem>
                 <ListItem href="/docs" title="Europe">
                   Re-usable components built using Radix UI and Tailwind CSS.
                 </ListItem>

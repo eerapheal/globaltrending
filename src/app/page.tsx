@@ -1,11 +1,17 @@
 import LatestPost from "@/components/home/latest.post";
+import { MainNav } from "@/ui/header/mainNav";
 
 export default function Home() {
   return (
-    <main className="text-blue-400">
-      <div>
+    <>
+    <header>
+      <MainNav />
+    </header>
+    <main className="">
+      <section>
        <LatestPost />
-      </div>
+      </section>
     </main>
+    </>
   );
 }
