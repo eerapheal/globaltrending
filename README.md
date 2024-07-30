@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Global Trending
 
-## Getting Started
+![Image Description](https://firebasestorage.googleapis.com/v0/b/globaltreadings.appspot.com/o/1709729634318-global%20treadings.png?alt=media&token=186a3d67-46af-46bd-9e64-302af04a6781)
 
-First, run the development server:
+## Description
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+  Fully SEO-optimized blog website built with Next.js, TypeScript, and Vercel PostgreSQL using Prisma and a responsive design using tailwindCSS and shadcnui. It supports MDX for rich content and includes OG and Twitter meta tags for enhanced social media sharing. It also includes a sitemap, robots.txt, and schema for improved search engine indexing.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Utilizes the NextJS (Next.js, TypeScript, Vercel PostgreSQL and Prisma. responsive design using tailwindCSS and shadcnui) stack for robust backend and frontend development.
+- CRUD operation
+- Email subscription
+- Fully SEO-optimized, for improved SEO performance and faster page rendering.
+- It supports MDX for rich content and includes OG and Twitter meta tags for enhanced social media sharing
+- Automatic crawling and indexing of all URLs for enhanced discoverability.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+1. Clone the repository:
 
-To learn more about Next.js, take a look at the following resources:
+  ```bash
+  git clone https://github.com/eerapheal/globaltrending.git
+  cd globaltrending
+  npm install
+  npm run dev
+  ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Live Demo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+  Check out the live demo of the Global Trendings application [here](https://globaltreading.onrender.com).
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+  Visit the live application to explore trending posts and share your ideas with the community.
+  Create an account to publish your own posts and interact with other users.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contributing
+
+- We welcome contributions from the community! If you'd like to contribute to the project, please follow these steps:
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix:
+
+````bash
+  git checkout -b "your-feature-name"
+  Commit your changes and push to the branch
+  git commit -m "Your commit message"
+  git push -u origin "your-feature-name"
+````
+
+- Create a pull request and detail your changes.
+
+## License
+
+- This project is licensed under the MIT [License](https://github.com/eerapheal/globaltreading/blob/main/LICENSE).
+
+## Contact
+
+- For any inquiries, feedback and full copyright, please contact the project maintainer at [email](ekpenisiraphael@gmail.com)
