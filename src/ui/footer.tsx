@@ -14,7 +14,7 @@ export default function Footer() {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+            <Link href="/" className="flex items-center space-x-2">
               <Image
                 src={Logo}
                 alt="footerLogo"
@@ -23,7 +23,7 @@ export default function Footer() {
                 height={50}
               />
               <span className="hidden lg:flex text-2xl font-bold text-blue-600 ">Global Trending</span>
-            </div>
+            </Link>
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Stay Up to Date with the latest news and insights from our blog.
             </p>

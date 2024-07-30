@@ -52,21 +52,19 @@ export function MainNav({ className }: { className?: string }) {
                         Africa
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components that you can copy and
-                        paste into your apps. Accessible. Customizable. Open
-                        Source.
+                        Discover the diverse cultures, landscapes, and wildlife of Africa. Explore articles on travel, history, and the vibrant life across the continent.
                       </p>
                     </a>
                   </NavigationMenuLink>
                 </li>
                 <ListItem href="/docs" title="America">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  Stay updated with the latest news and trends from North and South America. Read about culture, politics, and lifestyle across the continents.
                 </ListItem>
                 <ListItem href="/docs" title="Asia">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                  Explore the rich history, technology advancements, and diverse cultures of Asia. Find insights into travel, cuisine, and economic growth.
                 </ListItem>
                 <ListItem href="/docs/installation" title="Europe">
-                  How to install dependencies and structure your app.
+                  Discover Europe’s blend of modernity and tradition. Get insights into travel, cultural events, and historical landmarks across the continent.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -97,7 +95,7 @@ export function MainNav({ className }: { className?: string }) {
         </NavigationMenuList>
       </NavigationMenu>
       <div className="absolute md:hidden top-2 right-0 flex items-center justify-between gap-2">
-          <ModeToggle />
+        <ModeToggle />
         <Link href="/rss">
           <Icons.rss className="h-5 w-5" />
         </Link>
@@ -106,7 +104,7 @@ export function MainNav({ className }: { className?: string }) {
         </Link>
       </div>
       <div className="hidden md:flex items-center justify-between gap-2">
-          <ModeToggle />
+        <ModeToggle />
         <Link href="/rss">
           <Icons.rss className="h-5 w-5" />
         </Link>
