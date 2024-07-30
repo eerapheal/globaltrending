@@ -1,6 +1,8 @@
 import {
   Rss,
-  Twitter,
+  X,
+  Youtube,
+  Facebook,
   Command,
   ArrowRight,
   Icon as LucidIcon,
@@ -13,7 +15,9 @@ export const Icons = {
   logo: Command,
   rss: Rss,
   arrowRight: ArrowRight,
-  twitter: Twitter,
+  twitter: X,
+  youtube: Youtube,
+  facebook: Facebook,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
