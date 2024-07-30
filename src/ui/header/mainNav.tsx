@@ -16,33 +16,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import Image from "next/image"
 import { ModeToggle } from "@/components/ui/mode.toggle"
-
-const posts: { title: string; href: string; description: string }[] = [
-  {
-    title: "React",
-    href: "/blog/react",
-    description:
-      "Discover why React, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively."
-  },
-  {
-    title: "React",
-    href: "/blog/react",
-    description:
-      "Discover why React, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively."
-  },
-  {
-    title: "React",
-    href: "/blog/react",
-    description:
-      "Discover why React, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively."
-  },
-  {
-    title: "React",
-    href: "/blog/react",
-    description:
-      "Discover why React, with its steep learning curve, remains a beloved tool among developers for editing code efficiently and effectively."
-  },
-]
+import POSTS from '@/utils/constants';
 
 export function MainNav({ className }: { className?: string }) {
   return (
@@ -101,7 +75,7 @@ export function MainNav({ className }: { className?: string }) {
             <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                {posts.map((post) => (
+                {POSTS.map((post) => (
                   <ListItem
                     key={post.title}
                     title={post.title}

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
+import POSTS from '@/utils/constants';
 
 export default function Footer() {
   return (
@@ -64,7 +65,15 @@ export default function Footer() {
           <div className="space-y-4">
             <h3 className="text-md font-semibold">Blog</h3>
             <ul className="space-y-2 text-sm">
-              <li>react</li>
+              {POSTS.map((post) => (
+                <li
+                  key={post.title}
+                >
+                  <Link href={post.href}>
+                  {post.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div className="space-y-4">
