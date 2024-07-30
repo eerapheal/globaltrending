@@ -8,15 +8,13 @@ const PopularPosts = () => {
     <div>
       <ul className="overflow-auto">
         {popularPosts.map((post) => (
-          <Link 
-            key={post}
-            href='/blog'
+            <li 
+            key={post.title}
+            className="flex items-center gap-2 group cursor-pointer py-2"
             >
-            <li className="flex items-center gap-2 cursor-pointer py-2">
-              <Icons.arrowRight className='h-5 w-5' />
+              <Icons.arrowRight className='h-5 w-5 group-hover:translate-x-1 transition-all' />
               <p>{post.title}</p>
             </li>
-          </Link>
         ))}
       </ul>
     </div>
