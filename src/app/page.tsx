@@ -8,10 +8,8 @@ export default function Home() {
   return (
     <>
       <Container>
-        <header>
-          <MainNav />
-        </header>
-        <main className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
+        <MainNav />
+        <div className="flex flex-col items-start justify-evenly mt-16 md:flex-row">
           <section>
             <LatestPost />
           </section>
@@ -25,7 +23,7 @@ export default function Home() {
               <PopularPosts />
             </div>
           </section>
-        </main>
+        </div>
       </Container>
     </>
   );
