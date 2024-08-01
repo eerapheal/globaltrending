@@ -57,14 +57,14 @@ export function MainNav({ className }: { className?: string }) {
                     </a>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="America">
+                <ListItem href="#" title="America">
                   Stay updated with the latest news and trends from North and South America. Read about culture, politics, and lifestyle across the continents.
                 </ListItem>
-                <ListItem href="/docs" title="Asia">
+                <ListItem href="#" title="Asia">
                   Explore the rich history, technology advancements, and diverse cultures of Asia. Find insights into travel, cuisine, and economic growth.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Europe">
-                  Discover Europe’s blend of modernity and tradition. Get insights into travel, cultural events, and historical landmarks across the continent.
+                <ListItem href="#" title="Europe">
+                  Discover Europe blend of modernity and tradition. Get insights into travel, cultural events, and historical landmarks across the continent.
                 </ListItem>
               </ul>
             </NavigationMenuContent>
@@ -96,19 +96,19 @@ export function MainNav({ className }: { className?: string }) {
       </NavigationMenu>
       <div className="absolute md:hidden top-2 right-0 flex items-center justify-between gap-2">
         <ModeToggle />
-        <Link href="/rss" className="bg-background p-2 px-4 hover:bg-gray-800">
+        <Link href="/rss" className="bg-background py-[10px]  rounded px-4 hover:bg-gray-800">
           <Icons.rss className="h-5 w-5" />
         </Link>
-        <Link href="/sign-in" className="bg-background p-2 px-4 hover:bg-gray-800">
+        <Link href="/sign-in" className="bg-background py-2  rounded px-4 hover:bg-gray-800">
           Login
         </Link>
       </div>
       <div className="hidden md:flex items-center justify-between gap-2">
         <ModeToggle />
-        <Link href="/sign-in" className="bg-background p-2 px-4 hover:bg-gray-800">
+        <Link href="/sign-in" className="bg-background py-2  rounded px-4 hover:bg-gray-800">
           Login
         </Link>
-        <Link href="/rss" className="bg-background p-2 px-4 hover:bg-gray-800">
+        <Link href="/rss" className="bg-background py-[10px]  rounded px-4 hover:bg-gray-800">
           <Icons.rss className="h-5 w-5" />
         </Link>
       </div>
