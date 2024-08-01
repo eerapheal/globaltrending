@@ -6,6 +6,14 @@ import { formatDate, getBlogPosts } from '../../utils';
 import NotFound from '@/app/notFound';
 import CustomMDX from '@/components/mdx';
 
+export async function generateStaticParams() {
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 const Page = ({ params }: { params: { category: string; slug: string } }) => {
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
