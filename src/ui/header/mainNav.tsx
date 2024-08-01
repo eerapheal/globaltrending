@@ -77,7 +77,7 @@ export function MainNav({ className }: { className?: string }) {
                   <ListItem
                     key={post.title}
                     title={post.title}
-                    href={post.href}
+                    href={`/blog/${post.href}`}
                   >
                     {post.description}
                   </ListItem>
@@ -86,7 +86,7 @@ export function MainNav({ className }: { className?: string }) {
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <Link href="/docs" legacyBehavior passHref>
+            <Link href="/about" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 About
               </NavigationMenuLink>
