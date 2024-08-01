@@ -8,7 +8,7 @@ const LatestPost = () => {
 
   return (
     <>
-      <h1>
+      <h1 className="inline-block font-4xl tracking-tight lg:text-5xl">
         Recently Published
       </h1>
       {
