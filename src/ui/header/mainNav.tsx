@@ -104,10 +104,10 @@ export function MainNav({ className }: { className?: string }) {
             placeholder="Search Here"
             className=""
           />
-          <Icons.search className="absolute top-2 right-0" />
+          <Icons.search className="absolute top-2 right-0 pr-2" />
         </div>
         <ModeToggle />
-        <Link href="/rss" className="bg-background py-2  rounded px-4 dark:hover:bg-gray-800">
+        <Link href="/rss" className="bg-background py-2 hidden  rounded px-4 dark:hover:bg-gray-800">
           <Icons.rss className="h-5 w-5" />
         </Link>
         <Link href="#" className="bg-background py-2  hidden rounded px-4 dark:hover:bg-gray-800">
@@ -124,7 +124,7 @@ export function MainNav({ className }: { className?: string }) {
             className="flex-1"
             defaultValue=""
           />
-          <Icons.search className="absolute top-2 right-0" />
+          <Icons.search className="absolute top-2 right-0 pr-2" />
         </div>
         <ModeToggle />
         <Link href="#" className="bg-background py-2 hidden rounded px-4 dark:hover:bg-gray-800">
