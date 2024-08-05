@@ -1,5 +1,4 @@
-import { getSession } from "@/lib/profile/action";
-import Link from "next/link";
+"use client"
 import { redirect } from "next/navigation";
 import Container from "@/components/Container";
 import { MainNav } from "@/ui/header/mainNav";
@@ -8,31 +7,30 @@ import DashPosts from "@/components/admin/userDashboard/DashPosts";
 import DashUsers from "@/components/admin/userDashboard/DashUsers";
 import DashProfile from "@/components/admin/userDashboard/DashProfile";
 import DashboardView from "@/components/admin/userDashboard/DashboardView";
+import { useSession } from "next-auth/react";
+import Spinner from "@/components/spinner";
 
-const AdminPage = async ({ searchParams }: any) => {
-  const session = await getSession();
+const AdminPage = ({ searchParams }: any) => {
 
-  if (!session.isLoggedIn) {
-    redirect("/");
+  const { data: session, status } = useSession();
+
+  if (status === "loading") {
+    return <div className="flex justify-center items-center w-full h-screen text-center text-green-400 text-2xl">
+      <Spinner />
+    </div>;
   }
 
-  if (!session.isAdmin) {
-    return (
-      <div className="notPremium">
-        <h1>Only Admin users can see the content!</h1>
-        <Link href="/profile">
-          Go to the profile page Sign in
-        </Link>
-      </div>
-    );
+  if (status === "unauthenticated" || !session) {
+    redirect("/");
+    return null;
   }
 
   const tab = searchParams?.tab || 'dashboardView';
 
   return (
     <>
-    <Container>
-      <MainNav />
+      <Container>
+        <MainNav />
       </Container>
       <div className="min-h-screen flex gap-5 placeholder:flex-col md:flex-row pr-5">
         <div className="md:w-56">

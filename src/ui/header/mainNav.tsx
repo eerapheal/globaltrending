@@ -17,6 +17,7 @@ import {
 import Image from "next/image"
 import { ModeToggle } from "@/components/ui/mode.toggle"
 import POSTS from '@/utils/constants';
+import { Input } from "@/components/ui/input"
 
 export function MainNav({ className }: { className?: string }) {
   return (
@@ -94,21 +95,42 @@ export function MainNav({ className }: { className?: string }) {
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
-      <div className="absolute md:hidden top-2 right-0 flex items-center justify-between gap-2">
+      <div className="absolute md:hidden top-2 right-0 flex items-center  gap-1">
+        <div className="relative flex space-x-2">
+          <Input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="Search Here"
+            className=""
+          />
+          <Icons.search className="absolute top-2 right-0" />
+        </div>
         <ModeToggle />
-        <Link href="/rss" className="bg-background py-[10px]  rounded px-4 hover:bg-gray-800">
+        <Link href="/rss" className="bg-background py-2  rounded px-4 dark:hover:bg-gray-800">
           <Icons.rss className="h-5 w-5" />
         </Link>
-        <Link href="/sign-in" className="bg-background py-2  rounded px-4 hover:bg-gray-800">
-          Login
+        <Link href="#" className="bg-background py-2  hidden rounded px-4 dark:hover:bg-gray-800">
+          Free Tutorial
         </Link>
       </div>
       <div className="hidden md:flex items-center justify-between gap-2">
+        <div className="relative">
+          <Input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Search Here"
+            className="flex-1"
+            defaultValue=""
+          />
+          <Icons.search className="absolute top-2 right-0" />
+        </div>
         <ModeToggle />
-        <Link href="/sign-in" className="bg-background py-2  rounded px-4 hover:bg-gray-800">
-          Login
+        <Link href="#" className="bg-background py-2 hidden rounded px-4 dark:hover:bg-gray-800">
+          Free Tutorial
         </Link>
-        <Link href="/rss" className="bg-background py-[10px]  rounded px-4 hover:bg-gray-800">
+        <Link href="/rss" className="bg-background py-[10px]  rounded px-4 dark:hover:bg-gray-800">
           <Icons.rss className="h-5 w-5" />
         </Link>
       </div>

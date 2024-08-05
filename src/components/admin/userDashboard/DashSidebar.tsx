@@ -1,11 +1,8 @@
-import LogoutForm from '@/components/profile/logoutForm'
 import { Button } from '@/components/ui/button'
-import { getSession } from '@/lib/profile/action'
+import { signOut, } from "next-auth/react"
 import Link from 'next/link'
-import React from 'react'
 
-const DashSidebar = async ({ tab }: any) => {
-  const session = await getSession()
+const DashSidebar = ({ tab }: any) => {
 
   return (
     <div className=" flex flex-col justify-center items-center gap-10 dark:bg-gradient-to-br from-[#081129] to-[#021817] w-full min-h-screen">
@@ -13,8 +10,8 @@ const DashSidebar = async ({ tab }: any) => {
         className={`sidebar-item ${tab === "dashboardView" ? "active" : ""}`}
       >
         <Link href="/dashboard?tab=dashboardView">
-          <Button type="submit">
-          DashboardView
+          <Button type="submit" className="font-bold text-[1.20rem]">
+            Dashboard
           </Button>
         </Link>
       </div>
@@ -22,7 +19,7 @@ const DashSidebar = async ({ tab }: any) => {
         className={`sidebar-item ${tab === "profile" ? "active" : ""}`}
       >
         <Link href="/dashboard?tab=profile">
-          <Button type="submit">
+          <Button type="submit" className="font-bold text-[1.20rem]">
             Profile
           </Button>
         </Link>
@@ -31,7 +28,7 @@ const DashSidebar = async ({ tab }: any) => {
         className={`sidebar-item ${tab === "posts" ? "active" : ""}`}
       >
         <Link href="/dashboard?tab=posts">
-          <Button type="submit">
+          <Button type="submit" className="font-bold text-[1.20rem]">
             Posts
           </Button>
         </Link>
@@ -40,7 +37,7 @@ const DashSidebar = async ({ tab }: any) => {
         className={`sidebar-item ${tab === "users" ? "active" : ""}`}
       >
         <Link href="/dashboard?tab=users">
-          <Button type="submit">
+          <Button type="submit" className="font-bold text-[1.20rem]">
             Users
           </Button>
         </Link>
@@ -48,12 +45,11 @@ const DashSidebar = async ({ tab }: any) => {
       <div
         className={`sidebar-item ${tab === "users" ? "active" : ""}`}
       >
-        <Link href="/">
-          <Button>
-            {session.isLoggedIn && <LogoutForm />}
+        <div>
+          <Button onClick={() => signOut()} className="font-bold text-[1.20rem]">
+            SignOut
           </Button>
-        </Link>
-
+        </div>
       </div>
     </div>
   )

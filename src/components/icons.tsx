@@ -5,6 +5,7 @@ import {
   Facebook,
   Command,
   ArrowRight,
+  Search,
   Icon as LucidIcon,
   LucideProps,
 } from "lucide-react";
@@ -18,6 +19,7 @@ export const Icons = {
   twitter: X,
   youtube: Youtube,
   facebook: Facebook,
+  search: Search,
   gitHub: ({ ...props }: LucideProps) => (
     <svg
       aria-hidden="true"
