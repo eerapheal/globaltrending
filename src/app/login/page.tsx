@@ -1,26 +1,29 @@
-import LoginForm from "@/components/profile/loginForm"
-import { getSession } from "@/lib/profile/action"
-import { redirect } from "next/navigation"
-import Container from "@/components/Container";
-import { MainNav } from "@/ui/header/mainNav";
+"use client"
+import { redirect } from "next/navigation";
+import Container from "@/components/Container"
+import { MainNav } from "@/ui/header/mainNav"
+import { SignIn } from "@/components/sign-in"
+import { useSession } from "next-auth/react";
+import Spinner from "@/components/spinner";
 
-const LoginPage = async () => {
-  const session = await getSession()
+const LoginPage = () => {
 
-  if (session.isLoggedIn) {
-    redirect("/dashboard")
+  const { data: session, status } = useSession();
+
+  if (status === "authenticated" || session) {
+    redirect("/dashboard");
+    return null;
   }
+
   return (
-    <>
-      <Container>
-        <MainNav />
-        <div className="login p-[30px] md:p-[70px]">
-          <h1>Welcome to the Login Page</h1>
-          <LoginForm />
-        </div>
-      </Container>
-    </>
+    <Container>
+      <MainNav />
+      <div className="flex flex-col w-full h-screen gap-8 justify-center items-center">
+        <h1 className="text-center text-2xl">Welcome to the Global Trending Login Page</h1>
+        <SignIn />
+      </div>
+    </Container>
   )
 }
 
-export default LoginPage
+export default LoginPage;
