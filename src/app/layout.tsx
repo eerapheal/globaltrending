@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "@/style/globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import Footer from "@/ui/footer";
+import NextAuthProvider from "@/context/provider/auth/next-auth-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,10 +26,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="flex-1">
-          {children}
-          </main>
-          <Footer />
+          <NextAuthProvider>
+            <main className="flex-1">
+              {children}
+            </main>
+            <Footer />
+          </NextAuthProvider>
         </ThemeProvider>
       </body>
     </html>
