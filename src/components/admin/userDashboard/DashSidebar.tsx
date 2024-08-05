@@ -7,7 +7,7 @@ const DashSidebar = ({ tab }: any) => {
   return (
     <div className=" flex flex-col justify-center items-center gap-10 dark:bg-gradient-to-br from-[#081129] to-[#021817] w-full min-h-screen">
       <div
-        className={`sidebar-item ${tab === "dashboardView" ? "active" : ""}`}
+        className={``}
       >
         <Link href="/dashboard?tab=dashboardView">
           <Button type="submit" className="font-bold text-[1.20rem]">
@@ -16,7 +16,7 @@ const DashSidebar = ({ tab }: any) => {
         </Link>
       </div>
       <div
-        className={`sidebar-item ${tab === "profile" ? "active" : ""}`}
+        className={``}
       >
         <Link href="/dashboard?tab=profile">
           <Button type="submit" className="font-bold text-[1.20rem]">
@@ -25,7 +25,16 @@ const DashSidebar = ({ tab }: any) => {
         </Link>
       </div>
       <div
-        className={`sidebar-item ${tab === "posts" ? "active" : ""}`}
+        className={``}
+      >
+        <Link href="/write">
+          <Button type="submit" className="font-bold text-[1.20rem]">
+            Create
+          </Button>
+        </Link>
+      </div>
+      <div
+        className={``}
       >
         <Link href="/dashboard?tab=posts">
           <Button type="submit" className="font-bold text-[1.20rem]">
@@ -34,7 +43,7 @@ const DashSidebar = ({ tab }: any) => {
         </Link>
       </div>
       <div
-        className={`sidebar-item ${tab === "users" ? "active" : ""}`}
+        className={``}
       >
         <Link href="/dashboard?tab=users">
           <Button type="submit" className="font-bold text-[1.20rem]">
@@ -43,7 +52,7 @@ const DashSidebar = ({ tab }: any) => {
         </Link>
       </div>
       <div
-        className={`sidebar-item ${tab === "users" ? "active" : ""}`}
+        className={``}
       >
         <div>
           <Button onClick={() => signOut()} className="font-bold text-[1.20rem]">
