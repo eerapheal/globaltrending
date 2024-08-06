@@ -4,10 +4,49 @@ import Spinner from "@/components/spinner";
 import { redirect } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { formControls } from "@/utils/constants";
+import { firebaseConfig, formControls, initialBlogFormData } from "@/utils/constants";
+import { GlobalContext } from "@/context";
+import { initializeApp } from "firebase/app";
+import {
+  getStorage,
+  ref,
+  uploadBytesResumable,
+  getDownloadURL,
+} from "firebase/storage";
+import { useContext, useState } from "react";
+
+const app = initializeApp(firebaseConfig);
+const stroage = getStorage(app, "gs://globaltrending-61f22.appspot.com");
+
+function createUniqueFileName(fileName: string) {
+  const timeStamp = Date.now();
+  const randomString = Math.random().toString(36).substring(2, 12);
+
+  return `${fileName}-${timeStamp}-${randomString}`;
+}
+
+async function handleImageSaveToFireBase(file: any) {
+  const extractUniqueFileName = createUniqueFileName(file?.name);
+  const stroageRef = ref(stroage, `blog/${extractUniqueFileName}`);
+  const uploadImg = uploadBytesResumable(stroageRef, file);
+
+  return new Promise((resolve, reject) => {
+    uploadImg.on(
+      "state_changed",
+      (snapshot) => { },
+      (error) => reject(error),
+      () => {
+        getDownloadURL(uploadImg.snapshot.ref)
+          .then((url) => resolve(url))
+          .catch((error) => reject(error));
+      }
+    );
+  });
+}
 
 const Page = () => {
-
+  const { formData, setFormData } = useContext(GlobalContext);
+  const [imageLoading, setImageLoading] = useState<boolean>(false);
   const { data: session, status } = useSession();
 
   if (status === "loading") {
@@ -20,6 +59,26 @@ const Page = () => {
     redirect("/login");
     return null;
   }
+
+  async function handleBlogImageChange(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    if (!event.target.files) return;
+    setImageLoading(true);
+    const saveImageToFirebase: any = await handleImageSaveToFireBase(
+      event.target.files[0]
+    );
+
+    if (saveImageToFirebase !== "") {
+      setImageLoading(false);
+      console.log(saveImageToFirebase, "saveImageToFirebase");
+      setFormData({
+        ...formData,
+        image: saveImageToFirebase,
+      });
+    }
+  }
+
   return (
     <section className="overflow-hidden py-16 md:py-20 lg:py-28">
       <div className="container">
@@ -32,8 +91,8 @@ const Page = () => {
               <div>
                 <div className="flex flex-col gap-3">
                   <div className="flex gap-3">
-                    <div className={``}>
-                      <label className="mb-3 block text-sm font-medium ">
+                    <div className={`${imageLoading ? "w-1/2" : "w-full"}`}>
+                      <label className="mb-3 block text-sm font-medium text-dark dark:text-white">
                         Upload Blog Image
                       </label>
                       <Input
@@ -41,9 +100,15 @@ const Page = () => {
                         accept="image/*"
                         max={1000000}
                         type="file"
+                        onChange={handleBlogImageChange}
                         className="w-full mb-8 rounded-md border border-transparent py-3 px-6text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51]"
                       />
                     </div>
+                    {imageLoading ? (
+                      <div className="w-1/2">
+                        <Spinner />
+                      </div>
+                    ) : null}
                   </div>
                   <div className="-mx-4 flex flex-wrap">
                     {formControls.map((control) => (
