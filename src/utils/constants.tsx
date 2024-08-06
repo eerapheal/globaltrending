@@ -1,3 +1,5 @@
+import { FormControlItem, Option } from "./type";
+
 const POSTS: { title: string; href: string; description: string }[] = [
   {
     title: "Lifestyle",
@@ -38,3 +40,58 @@ const POSTS: { title: string; href: string; description: string }[] = [
 ];
 
 export default POSTS;
+
+
+export const categories: Option[] = [
+  {
+    value: "sport",
+    label: "Sport",
+  },
+  {
+    value: "health",
+    label: "Health",
+  },
+  {
+    value: "lifestyle",
+    label: "Lifestyle",
+  },
+  {
+    value: "business",
+    label: "Business",
+  },
+  {
+    value: "tech",
+    label: "Technology",
+  },
+  {
+    value: "entertainment",
+    label: "Entertainment",
+  },
+];
+
+export const formControls: FormControlItem[] = [
+  {
+    id: "title",
+    label: "Title",
+    placeholder: "Enter Blog Title",
+    type: "text",
+    component: "input",
+    options: [],
+  },
+  {
+    id: "description",
+    label: "Description",
+    placeholder: "Enter Blog Description",
+    type: "text",
+    component: "textarea",
+    options: [],
+  },
+  {
+    id: "category",
+    label: "Category",
+    placeholder: "Choose Blog Category",
+    type: "",
+    component: "select",
+    options: categories,
+  },
+];
