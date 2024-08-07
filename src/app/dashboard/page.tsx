@@ -37,7 +37,7 @@ const AdminPage = ({ searchParams }: any) => {
           {/* Sidebar */}
           <DashSidebar tab={tab} />
         </div>
-        <div className="flex-1 dark:bg-gradient-to-br from-[#081129] to-[#021817] rounded-xl p-5">
+        <div className="flex-1 bg-black/10 dark:bg-gradient-to-br from-[#081129] to-[#021817] rounded-xl p-5">
           {/* Render based on tab */}
           {tab === "dashboardView" && <DashboardView />}
           {tab === "profile" && <DashProfile />}
