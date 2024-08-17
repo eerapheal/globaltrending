@@ -13,7 +13,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { BlogFormData } from "@/utils/type";
 import Container from "@/components/Container";
 import { MainNav } from "@/ui/header/mainNav";
@@ -54,6 +54,8 @@ const Page = () => {
   const [imageLoading, setImageLoading] = useState<boolean>(false);
   const { data: session, status } = useSession();
 
+  console.log(formData)
+  
   if (status === "loading") {
     return <div className="flex justify-center items-center w-full  h-screen text-center">
       <Spinner />
@@ -83,6 +85,9 @@ const Page = () => {
       });
     }
   }
+  const handleCreatePost = () => {
+
+  };
 
   return (
     <>
@@ -110,7 +115,7 @@ const Page = () => {
                             max={1000000}
                             type="file"
                             onChange={handleBlogImageChange}
-                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6text-base text-body-color placeholder-body-color shadow-one outline-none focus:border-primary focus-visible:shadow-none dark:bg-[#242B51]"
+                            className="w-full mb-8 rounded-md border border-transparent py-3 px-6 shadow-one outline-none focus:border-neutral-100 focus-visible:shadow-none dark:bg-[#242B51]"
                           />
                         </div>
                         {imageLoading ? (
@@ -121,7 +126,10 @@ const Page = () => {
                       </div>
                       <div className="-mx-4 flex flex-wrap">
                         {formControls.map((control) => (
-                          <div className="w-full px-4">
+                          <div 
+                            className="w-full px-4"
+                            key={control.id}
+                          >
                             <label className="mb-3 block text-sm font-medium">
                               {control.label}
                             </label>
@@ -176,6 +184,7 @@ const Page = () => {
                                 </option>
                                 {control.options.map((optionItem) => (
                                   <option
+                                  key={optionItem.value} 
                                     id={optionItem.value}
                                     value={optionItem.value}
                                   >
@@ -187,7 +196,11 @@ const Page = () => {
                           </div>
                         ))}
                         <div className="w-full px-4">
-                          <Button>Create New Blog</Button>
+                          <Button
+                            onClick={handleCreatePost}
+                          >
+                            Create New Blog
+                          </Button>
                         </div>
                       </div>
                     </div>
